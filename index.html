@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Alan The Handyman – Professional home repair and maintenance services. Plumbing, electrical, painting, carpentry, drywall and more. Call (702) 278-2387 for a free quote." />
+  <meta name="keywords" content="handyman, home repair, maintenance, plumbing, electrical, painting, carpentry, Las Vegas, Alan The Handyman" />
+  <meta property="og:title" content="Alan The Handyman – Professional Home Repair" />
+  <meta property="og:description" content="Reliable, professional handyman services. Call (702) 278-2387 today!" />
+  <meta property="og:type" content="website" />
+  <title>Alan The Handyman – Professional Home Repair &amp; Maintenance</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: #1a1a2e;
+      background: #ffffff;
+      line-height: 1.6;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ===== DESIGN TOKENS ===== */
+    :root {
+      --primary: #e8521a;
+      --primary-dark: #c4401a;
+      --secondary: #1a1a2e;
+      --accent: #f5a623;
+      --light: #f8f5f2;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --border: #e5e7eb;
+      --shadow: 0 4px 24px rgba(0,0,0,0.10);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.16);
+      --radius: 12px;
+      --radius-lg: 20px;
+    }
+
+    /* ===== UTILITIES ===== */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section-tag {
+      display: inline-block;
+      background: rgba(232,82,26,0.12);
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--secondary);
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--gray);
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: all 0.22s ease;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,82,26,0.35); }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.6);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.15); border-color: #fff; }
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--secondary);
+      border: 2px solid var(--border);
+    }
+    .btn-outline-dark:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 24px;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .navbar.scrolled {
+      background: rgba(255,255,255,0.97);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.10);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--white);
+      transition: color 0.3s;
+    }
+    .navbar.scrolled .nav-logo { color: var(--secondary); }
+    .nav-logo-icon {
+      width: 42px; height: 42px;
+      background: var(--primary);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.88);
+      transition: color 0.2s;
+    }
+    .navbar.scrolled .nav-links a { color: var(--secondary); }
+    .nav-links a:hover { color: var(--primary) !important; }
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-phone {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.88);
+      transition: color 0.3s;
+    }
+    .navbar.scrolled .nav-phone { color: var(--secondary); }
+    .nav-phone:hover { color: var(--primary) !important; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px; height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .navbar.scrolled .hamburger span { background: var(--secondary); }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: #fff;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      padding: 24px;
+      z-index: 999;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      display: block;
+      padding: 12px 16px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--secondary);
+      border-radius: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .mobile-menu a:hover { background: var(--light); color: var(--primary); }
+    .mobile-menu .btn { margin-top: 8px; width: 100%; justify-content: center; }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1581783898377-1c85bf937427?w=1600&auto=format&fit=crop&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, rgba(26,26,46,0.88) 0%, rgba(26,26,46,0.55) 60%, rgba(26,26,46,0.30) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 24px 80px;
+      max-width: 680px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .hero-badge span { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; display: inline-block; }
+    .hero-title {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .hero-title em { color: var(--accent); font-style: normal; }
+    .hero-desc {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .hero-stats {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 0;
+      margin-top: 60px;
+      background: rgba(255,255,255,0.10);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius);
+      overflow: hidden;
+      max-width: 600px;
+    }
+    .hero-stat {
+      flex: 1;
+      padding: 20px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat-num {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+      margin-top: 4px;
+    }
+
+    /* ===== TRUST BAR ===== */
+    .trust-bar {
+      background: var(--secondary);
+      padding: 20px 0;
+    }
+    .trust-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .trust-item svg { color: var(--accent); flex-shrink: 0; }
+
+    /* ===== SERVICES ===== */
+    .services {
+      padding: 96px 0;
+      background: var(--light);
+    }
+    .services-header { text-align: center; }
+    .services-header .section-subtitle { margin: 0 auto 48px; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 28px;
+    }
+    .service-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .service-card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .service-card-body { padding: 24px; }
+    .service-card-icon {
+      width: 48px; height: 48px;
+      background: rgba(232,82,26,0.1);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+    }
+    .service-card-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--secondary);
+      margin-bottom: 8px;
+    }
+    .service-card-desc {
+      font-size: 0.92rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      padding: 96px 0;
+      background: #fff;
+    }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+    }
+    .about-badge {
+      position: absolute;
+      bottom: -24px;
+      right: -24px;
+      background: var(--primary);
+      color: #fff;
+      padding: 24px;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+    .about-badge-num { font-size: 2.4rem; font-weight: 900; line-height: 1; }
+    .about-badge-label { font-size: 0.8rem; font-weight: 600; opacity: 0.9; margin-top: 4px; }
+    .about-content { padding-right: 16px; }
+    .about-list { list-style: none; margin: 24px 0 36px; }
+    .about-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      color: var(--secondary);
+      font-weight: 500;
+    }
+    .about-list li svg { color: var(--primary); flex-shrink: 0; }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials {
+      padding: 96px 0;
+      background: var(--light);
+    }
+    .testimonials-header { text-align: center; }
+    .testimonials-header .section-subtitle { margin: 0 auto 48px; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 14px;
+      color: var(--accent);
+      font-size: 1rem;
+    }
+    .testimonial-text {
+      font-size: 0.97rem;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonial-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .testimonial-name { font-weight: 700; font-size: 0.95rem; color: var(--secondary); }
+    .testimonial-location { font-size: 0.8rem; color: var(--gray); }
+
+    /* ===== CTA BANNER ===== */
+    .cta-banner {
+      position: relative;
+      padding: 80px 0;
+      overflow: hidden;
+    }
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1400&auto=format&fit=crop&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    .cta-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(232,82,26,0.92) 0%, rgba(26,26,46,0.92) 100%);
+    }
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .cta-content h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .cta-content p { color: rgba(255,255,255,0.85); font-size: 1.05rem; margin-bottom: 36px; }
+    .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      background: #fff;
+      color: var(--primary);
+      font-weight: 800;
+    }
+    .btn-white:hover { background: var(--light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      padding: 96px 0;
+      background: #fff;
+    }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .contact-info { }
+    .contact-item {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 28px;
+      align-items: flex-start;
+    }
+    .contact-icon {
+      width: 52px; height: 52px;
+      background: rgba(232,82,26,0.1);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--primary);
+    }
+    .contact-item-title { font-weight: 700; color: var(--secondary); margin-bottom: 4px; }
+    .contact-item-val { color: var(--gray); font-size: 0.95rem; }
+    .contact-item-val a { color: var(--primary); font-weight: 600; }
+    .contact-item-val a:hover { text-decoration: underline; }
+    .social-links { display: flex; gap: 12px; margin-top: 32px; }
+    .social-link {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--light);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--secondary);
+      transition: background 0.2s, color 0.2s;
+      font-size: 1.1rem;
+    }
+    .social-link:hover { background: var(--primary); color: #fff; }
+    .contact-form {
+      background: var(--light);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+    }
+    .contact-form h3 { font-size: 1.4rem; font-weight: 800; color: var(--secondary); margin-bottom: 24px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--secondary);
+      background: #fff;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--primary); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-submit { width: 100%; justify-content: center; font-size: 1rem; padding: 14px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--secondary);
+      padding: 64px 0 32px;
+      color: rgba(255,255,255,0.75);
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .nav-logo { color: #fff; margin-bottom: 16px; }
+    .footer-brand p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
+    .footer-col-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--primary); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-bottom p { font-size: 0.85rem; }
+
+    /* ===== SCROLL TO TOP ===== */
+    #scroll-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 48px; height: 48px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 16px rgba(232,82,26,0.4);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s;
+      z-index: 500;
+    }
+    #scroll-top.visible { opacity: 1; pointer-events: all; }
+    #scroll-top:hover { transform: translateY(-3px); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .about-inner,
+      .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+      .about-badge { right: 0; bottom: -16px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .hero-stats { flex-wrap: wrap; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta .btn { display: none; }
+      .hamburger { display: flex; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .trust-bar-inner { gap: 20px; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .hero-stats { flex-direction: column; }
+      .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.15); }
+      .hero-stat:last-child { border-bottom: none; }
+      .cta-actions { flex-direction: column; }
+      .cta-actions .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">🔧</div>
+        Alan The Handyman
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="tel:7022782387" class="nav-phone">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;margin-right:4px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (702) 278-2387
+        </a>
+        <a href="#contact" class="btn btn-primary">Get a Quote</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#services" onclick="closeMobile()">Services</a>
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#testimonials" onclick="closeMobile()">Reviews</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+    <a href="tel:7022782387" class="btn btn-outline-dark">📞 (702) 278-2387</a>
+    <a href="#contact" class="btn btn-primary" onclick="closeMobile()">Get a Free Quote</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div style="position:relative;z-index:1;width:100%;padding:0 24px;">
+      <div class="hero-content" style="padding-left:0;padding-right:0;">
+        <div class="hero-badge"><span></span> Available 7 Days a Week</div>
+        <h1 class="hero-title">
+          Your Trusted<br><em>Handyman</em> for<br>Every Job
+        </h1>
+        <p class="hero-desc">
+          From minor repairs to major renovations, Alan gets the job done right the first time — on time and within budget.
+        </p>
+        <div class="hero-actions">
+          <a href="tel:7022782387" class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call Now
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            Get a Free Quote
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">10+</div>
+            <div class="hero-stat-label">Years Experience</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">500+</div>
+            <div class="hero-stat-label">Jobs Completed</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">5★</div>
+            <div class="hero-stat-label">Average Rating</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">100%</div>
+            <div class="hero-stat-label">Satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUST BAR ===== -->
+  <div class="trust-bar">
+    <div class="container trust-bar-inner">
+      <div class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Licensed &amp; Insured
+      </div>
+      <div class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Free Estimates
+      </div>
+      <div class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Same-Day Service Available
+      </div>
+      <div class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Workmanship Guaranteed
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-header">
+        <span class="section-tag">What We Do</span>
+        <h2 class="section-title">Professional Handyman Services</h2>
+        <p class="section-subtitle">No job is too big or too small. Alan handles it all with skill, professionalism, and a smile.</p>
+      </div>
+      <div class="services-grid">
+
+        <!-- Plumbing -->
+        <div class="service-card">
+          <img class="service-card-img"
+               src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80"
+               alt="Plumber fixing a leaking pipe under a sink during home repair" />
+          <div class="service-card-body">
+            <div class="service-card-icon">🔧</div>
+            <h3 class="service-card-title">Plumbing Repairs</h3>
+            <p class="service-card-desc">Leaky faucets, clogged drains, running toilets, pipe repairs, and fixture installations. Fast, reliable fixes that last.</p>
+          </div>
+        </div>
+
+        <!-- Electrical -->
+        <div class="service-card">
+          <img class="service-card-img"
+               src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&auto=format&fit=crop&q=80"
+               alt="Electrician installing light switches and outlets in a residential home" />
+          <div class="service-card-body">
+            <div class="service-card-icon">⚡</div>
+            <h3 class="service-card-title">Electrical Work</h3>
+            <p class="service-card-desc">Outlet and switch replacements, ceiling fan installation, light fixture upgrades, and minor electrical repairs.</p>
+          </div>
+        </div>
+
+        <!-- Painting -->
+        <div class="service-card">
+          <img class="service-card-img"
+               src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&auto=format&fit=crop&q=80"
+               alt="Painter applying fresh paint to interior walls with a roller brush" />
+          <div class="service-card-body">
+            <div class="service-card-icon">🎨</div>
+            <h3 class="service-card-title">Interior Painting</h3>
+            <p class="service-card-desc">Interior walls, trim, ceilings, and doors painted to perfection. Clean prep work and crisp, lasting finishes.</p>
+          </div>
+        </div>
+
+        <!-- Carpentry -->
+        <div class="service-card">
+          <img class="service-card-img"
+               src="https://images.unsplash.com/photo-1588854337236-6889d631faa8?w=600&auto=format&fit=crop&q=80"
+               alt="Carpenter measuring and cutting wood for custom carpentry and trim work" />
+          <div class="service-card-body">
+            <div class="service-card-icon">🪵</div>
+            <h3 class="service-card-title">Carpentry &amp; Trim</h3>
+            <p class="service-card-desc">Door hanging, trim installation, shelving, cabinet repairs, and custom woodwork to elevate any room.</p>
+          </div>
+        </div>
+
+        <!-- Drywall -->
+        <div class="service-card">
+          <img class="service-card-img"
+               src="https://images.unsplash.com/photo-1581578949510-fa7315c4c350?w=600&auto=format&fit=crop&q=80"
+               alt="Worker patching and finishing drywall repairs in a home interior" />
+          <div class="service-card-body">
+            <div class="service-card-icon">🏠</div>
+            <h3 class="service-card-title">Drywall Repair</h3>
+            <p class="service-card-desc">Hole patching, crack filling, texture matching, and water-damage repair — seamless results that blend right in.</p>
+          </div>
+        </div>
+
+        <!-- General Maintenance -->
+        <div class="service-card">
+          <img class="service-card-img"
+               src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&auto=format&fit=crop&q=80"
+               alt="Handyman performing general home maintenance and inspection tasks" />
+          <div class="service-card-body">
+            <div class="service-card-icon">🛠️</div>
+            <h3 class="service-card-title">General Maintenance</h3>
+            <p class="service-card-desc">Furniture assembly, gutter cleaning, weatherstripping, caulking, pressure washing — the fix-it list taken care of.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-img-wrap">
+          <img class="about-img"
+               src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&auto=format&fit=crop&q=80"
+               alt="Professional handyman Alan holding tools and smiling at a home repair job site" />
+          <div class="about-badge">
+            <div class="about-badge-num">10+</div>
+            <div class="about-badge-label">Years of Experience</div>
+          </div>
+        </div>
+        <div class="about-content">
+          <span class="section-tag">About Alan</span>
+          <h2 class="section-title">Experienced. Reliable. Professional.</h2>
+          <p style="color:var(--gray);font-size:1rem;line-height:1.7;margin-bottom:12px;">
+            Hi, I'm Alan — a skilled handyman with over a decade of hands-on experience helping homeowners and businesses keep their properties in top shape.
+          </p>
+          <p style="color:var(--gray);font-size:1rem;line-height:1.7;">
+            I take pride in showing up on time, communicating clearly, and delivering high-quality work at fair prices. Whether it's a small repair or a big project, I treat every job with the same care and attention to detail.
+          </p>
+          <ul class="about-list">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Fully licensed and insured for your peace of mind
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Transparent pricing — no hidden fees, ever
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Timely, professional, and respectful of your home
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Satisfaction guaranteed on every project
+            </li>
+          </ul>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;">
+            <a href="tel:7022782387" class="btn btn-primary">
+              📞 Call (702) 278-2387
+            </a>
+            <a href="#contact" class="btn btn-outline-dark">
+              Get a Quote
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="testimonials-header">
+        <span class="section-tag">Reviews</span>
+        <h2 class="section-title">What Customers Are Saying</h2>
+        <p class="section-subtitle">Don't just take our word for it — here's what real customers have to say about Alan The Handyman.</p>
+      </div>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Alan fixed our leaky faucet and installed a new ceiling fan in the same visit. Fast, professional, and priced fairly. He's our go-to handyman from now on!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">M</div>
+            <div>
+              <div class="testimonial-name">Maria G.</div>
+              <div class="testimonial-location">Las Vegas, NV</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Called Alan for some drywall patches and a fresh coat of paint. He showed up the next day, did incredible work, and left everything spotless. Highly recommend!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">J</div>
+            <div>
+              <div class="testimonial-name">James T.</div>
+              <div class="testimonial-location">Henderson, NV</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Super responsive and genuinely cares about doing good work. Fixed our deck railing and replaced several outlets. Fair price and zero hassle — couldn't ask for more."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">S</div>
+            <div>
+              <div class="testimonial-name">Sarah K.</div>
+              <div class="testimonial-location">North Las Vegas, NV</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="cta-banner">
+    <div class="cta-bg"></div>
+    <div class="cta-overlay"></div>
+    <div class="cta-content">
+      <h2>Ready to Get Started?</h2>
+      <p>Call or message Alan today for a fast, free estimate. Most jobs can be scheduled within 24–48 hours.</p>
+      <div class="cta-actions">
+        <a href="tel:7022782387" class="btn btn-white">
+          📞 Call (702) 278-2387
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          Request a Quote Online
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:56px;">
+        <span class="section-tag">Contact Us</span>
+        <h2 class="section-title">Let's Get the Job Done</h2>
+        <p class="section-subtitle" style="margin:0 auto;">Reach out by phone, email, or the form below. Alan typically responds within a few hours.</p>
+      </div>
+      <div class="contact-inner">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-title">Phone</div>
+              <div class="contact-item-val"><a href="tel:7022782387">(702) 278-2387</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-title">Email</div>
+              <div class="contact-item-val"><a href="mailto:alan@alanthehandyman.com">alan@alanthehandyman.com</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-title">Service Area</div>
+              <div class="contact-item-val">Las Vegas, Henderson, North Las Vegas &amp; surrounding areas</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-title">Hours</div>
+              <div class="contact-item-val">Mon – Sat: 7:00 AM – 7:00 PM<br>Sunday: By Appointment</div>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="https://www.instagram.com/alanthehandymann/" target="_blank" rel="noopener" class="social-link" aria-label="Follow Alan The Handyman on Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h3>Request a Free Quote</h3>
+          <form onsubmit="handleFormSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" placeholder="(702) 000-0000" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" />
+            </div>
+            <div class="form-group">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service">
+                <option value="">Select a service…</option>
+                <option>Plumbing Repairs</option>
+                <option>Electrical Work</option>
+                <option>Interior Painting</option>
+                <option>Carpentry &amp; Trim</option>
+                <option>Drywall Repair</option>
+                <option>General Maintenance</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Describe Your Project *</label>
+              <textarea id="message" name="message" placeholder="Tell Alan what you need help with…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">
+              Send Request →
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:16px;">
+            <div class="nav-logo-icon">🔧</div>
+            Alan The Handyman
+          </div>
+          <p>Professional handyman services for homeowners and businesses in the Las Vegas Valley. Quality work, honest pricing, every time.</p>
+          <div style="display:flex;gap:10px;margin-top:16px;">
+            <a href="https://www.instagram.com/alanthehandymann/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="#services">Plumbing Repairs</a></li>
+            <li><a href="#services">Electrical Work</a></li>
+            <li><a href="#services">Interior Painting</a></li>
+            <li><a href="#services">Carpentry &amp; Trim</a></li>
+            <li><a href="#services">Drywall Repair</a></li>
+            <li><a href="#services">General Maintenance</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li><a href="tel:7022782387">(702) 278-2387</a></li>
+            <li><a href="mailto:alan@alanthehandyman.com">alan@alanthehandyman.com</a></li>
+            <li><a href="#contact">Las Vegas, NV</a></li>
+            <li><a href="#contact">Request a Quote</a></li>
+          </ul>
+          <div style="margin-top:20px;">
+            <a href="tel:7022782387" class="btn btn-primary" style="font-size:0.9rem;padding:10px 20px;">
+              📞 Call Now
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Alan The Handyman. All rights reserved.</p>
+        <p>Licensed &amp; Insured | Las Vegas, NV</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button id="scroll-top" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    ▲
+  </button>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      document.getElementById('scroll-top').classList.toggle('visible', window.scrollY > 400);
+    });
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+    }
+
+    // Form submit
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type=submit]');
+      btn.textContent = '✓ Request Sent!';
+      btn.style.background = '#16a34a';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = 'Send Request →';
+        btn.style.background = '';
+        btn.disabled = false;
+        e.target.reset();
+      }, 4000);
+    }
+  </script>
+
+</body>
+</html>
